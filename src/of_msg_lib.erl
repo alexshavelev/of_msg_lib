@@ -102,12 +102,13 @@
 
 -include_lib("of_protocol/include/of_protocol.hrl").
 
+-define(V3, 3).
 -define(V4, 4).
 -define(V5, 5).
 
 -type version()                :: pos_integer().
 
--type supported_versions()     :: [?V4 | ?V5].
+-type supported_versions()     :: [?V4 | ?V5 | ?V3].
 -type config_flags()           :: frag_normal
                                 | frag_drop
                                 | frag_reasm
@@ -372,7 +373,9 @@ decode(#ofp_message{ xid = Xid, body = Body }) ->
     % the newest version of our OF parser can decode the hello message.
     {Name, Res} = (lib_mod(4)):decode(Body),
     {Name, Xid, Res}.
-
+    
+lib_mod(?V3) ->
+    of_msg_lib;
 lib_mod(?V4) ->
     of_msg_lib_v4;
 lib_mod(?V5) ->
