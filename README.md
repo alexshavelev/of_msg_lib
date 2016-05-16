@@ -1,6 +1,8 @@
 of_msg_lib
 ==========
 
+#WARNING!! NOT ORIGINAL LIB
+
 The OpenFlow Message Library aims to provide a simpler interface for application programmers when interacting with OpenFlow switches via the [of_protocol](https://github.com/FlowForwarding/of_protocol) library. Functions are named after what logical operation is performed on the switch rather that what the underlaying OpenFlow messages that are used to perform it. All functions that create messages take property lists as arguments instead of the records defined in of_protocol.
 
 Building
