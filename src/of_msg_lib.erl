@@ -361,7 +361,9 @@
     % Older unsupported versions end up here. The only unsupported versions
     % of OF we should get are the handshake hello messages.
 decode(#ofp_message{ version = Version, xid = Xid, body = Body }) when Version < ?V4 ->
-    {Name, Res} = decode_hello(Body),
+%%    {Name, Res} = decode_hello(Body),
+%%  {Name, Xid, Res};
+    {Name, Res} = (lib_mod(Version)):decode(Body),
     {Name, Xid, Res};
 
 decode(#ofp_message{ version = Version, xid = Xid, body = Body }) when ( Version >= ?V4 ) and ( Version =< ?V5 )->
