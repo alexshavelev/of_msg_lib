@@ -375,7 +375,7 @@ decode(#ofp_message{ xid = Xid, body = Body }) ->
     {Name, Xid, Res}.
     
 lib_mod(?V3) ->
-    of_msg_lib;
+    of_msg_lib_v3;
 lib_mod(?V4) ->
     of_msg_lib_v4;
 lib_mod(?V5) ->
