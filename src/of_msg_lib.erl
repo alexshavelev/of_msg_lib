@@ -1099,4 +1099,7 @@ oe_get_port_descriptions(Version) ->
 
 decode_hello(#ofp_hello{}) ->
     {hello, []}.
+    
+hello(Versions) ->
+    #ofp_hello{elements = [{versionbitmap, Versions}]}.
 
