@@ -105,6 +105,7 @@
 -define(V3, 3).
 -define(V4, 4).
 -define(V5, 5).
+-define(V6, 6).
 
 -type version()                :: pos_integer().
 
@@ -381,7 +382,9 @@ lib_mod(?V3) ->
 lib_mod(?V4) ->
     of_msg_lib_v4;
 lib_mod(?V5) ->
-    of_msg_lib_v5.
+    of_msg_lib_v5;
+lib_mod(?V6) ->
+  of_msg_lib_v6.
     
 %%--------------------------------------------------------------------
 %% @doc
